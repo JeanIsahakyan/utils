@@ -1,0 +1,25 @@
+{
+  "name": "ji/utils",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Zhan Isaakian",
+      "email": "jeanisahkyan@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=8.1",
+    "ext-json": "*",
+    "ext-pdo": "*",
+    "ext-curl": "*",
+    "firebase/php-jwt": "^5.0",
+    "phpmailer/phpmailer": "^6.8",
+    "ext-mbstring": "*",
+    "aws/aws-sdk-php": "^3.256"
+  },
+  "autoload": {
+    "psr-4": {
+      "JI\\": "src"
+    }
+  }
+}
