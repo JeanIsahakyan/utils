@@ -15,7 +15,9 @@
     "firebase/php-jwt": "^5.0",
     "phpmailer/phpmailer": "^6.8",
     "ext-mbstring": "*",
-    "aws/aws-sdk-php": "^3.256"
+    "aws/aws-sdk-php": "^3.256",
+    "ext-gd": "*",
+    "ext-exif": "*"
   },
   "autoload": {
     "psr-4": {

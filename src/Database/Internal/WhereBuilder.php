@@ -123,12 +123,13 @@ class WhereBuilder extends AbstractBuilder {
     $q = [];
     foreach ($value as $name => $order) {
       if (!is_numeric($name)) {
-        $order = $name;
+        $q[] = "`{$name}`";
+      } else {
+        $q[] = "`{$order}";
+        continue;
       }
       if ($order === 'DESC' || $order === 'ASC') {
         $q[count($q) - 1] .= ' '.$order;
-      } else {
-        $q[] = "`{$order}`";
       }
     }
     $this->order = 'ORDER BY '.implode(', ', $q);
@@ -162,8 +163,10 @@ class WhereBuilder extends AbstractBuilder {
       }
       $and_query[] = implode(' AND ', $this->buildWhere([$name => $value]));
     }
-    $this->query[] = 'WHERE';
-    $this->query[] = implode(' AND ', $and_query);
+    if ($and_query) {
+      $this->query[] = 'WHERE';
+      $this->query[] = implode(' AND ', $and_query);
+    }
     $this->query[] = $this->order;
     $this->query[] = $this->limit;
   }

@@ -1,7 +1,11 @@
 <?php
-namespace JI\Files;
+namespace JI\Files\Servers;
 
+use JI\Files\File;
 
+/**
+ * @author Zhan Isaakian <jeanisahakyan@gmail.com>
+ */
 class LocalFileServer extends AbstractFileServer {
 
   public const FIELD_DIRECTORY = 'directory';

@@ -1,7 +1,9 @@
 <?php
-namespace JI\Files;
+namespace JI\Files\Servers;
 
-
+/**
+ * @author Zhan Isaakian <jeanisahakyan@gmail.com>
+ */
 class FileServers {
   public const TYPE_LOCAL_SERVER = 0;
   public const TYPE_S3_SERVER = 1;
@@ -10,7 +12,7 @@ class FileServers {
    * @var FileServerInterface[] $servers
    */
   private array $servers = [];
-  private static self $instance;
+  protected static $instance;
 
   public static function getInstance(): self {
     if (!self::$instance) {

@@ -1,6 +1,10 @@
 <?php
-namespace JI\Files;
+namespace JI\Files\Servers;
+use JI\Files\File;
 
+/**
+ * @author Zhan Isaakian <jeanisahakyan@gmail.com>
+ */
 interface FileServerInterface {
   public function __construct(array $config);
   public function getServerId(): int;

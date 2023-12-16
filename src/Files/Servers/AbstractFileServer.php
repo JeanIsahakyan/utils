@@ -1,8 +1,12 @@
 <?php
-namespace JI\Files;
+namespace JI\Files\Servers;
 
 use Exception;
+use JI\Files\File;
 
+/**
+ * @author Zhan Isaakian <jeanisahakyan@gmail.com>
+ */
 abstract class AbstractFileServer implements FileServerInterface {
   private int $server_id;
 

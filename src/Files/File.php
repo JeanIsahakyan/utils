@@ -2,8 +2,12 @@
 namespace JI\Files;
 
 use JI\Database\Utils\AbstractItem;
+use JI\Files\Servers\FileServers;
 use JI\Utils\Mask;
 
+/**
+ * @author Zhan Isaakian <jeanisahakyan@gmail.com>
+ */
 class File extends AbstractItem {
   private ?int $file_id      = null;
   private ?int $server_id    = null;

@@ -1,9 +1,12 @@
 <?php
-namespace JI\Files;
-
+namespace JI\Files\Servers;
 
 use Aws\S3\S3Client;
+use JI\Files\File;
 
+/**
+ * @author Zhan Isaakian <jeanisahakyan@gmail.com>
+ */
 class S3FileServer extends AbstractFileServer {
   private S3Client $s3;
 
