@@ -43,8 +43,8 @@ class FullID {
     return implode(self::SEPARATOR, $id);
   }
 
-  private static function getHash(array $ids): string {
-    return hash('sha256', implode(self::HASH_GLUE, $ids));
+  private static function getHash(array $ids, string $glue = self::HASH_GLUE): string {
+    return hash('sha256', implode($glue, $ids));
   }
 
   public function __toString(): string {
@@ -60,17 +60,17 @@ class FullID {
     return self::create(...explode(self::SEPARATOR, $full_id));
   }
 
-  public static function fromPublicString(string $full_id): ?self {
+  public static function fromPublicString(string $full_id, string $glue = self::HASH_GLUE): ?self {
     $full_id = explode(self::SEPARATOR, $full_id);
     $hash = array_shift($full_id);
-    if (self::getHash($full_id) !== $hash) {
+    if (self::getHash($full_id, $glue) !== $hash) {
       return null;
     }
     return self::create(...$full_id);
   }
 
-  public function stringPublic(): string {
-    return $this->toString([self::getHash($this->id), ...$this->id]);
+  public function stringPublic($glue = self::HASH_GLUE): string {
+    return $this->toString([self::getHash($this->id, $glue), ...$this->id]);
   }
 
   /**
