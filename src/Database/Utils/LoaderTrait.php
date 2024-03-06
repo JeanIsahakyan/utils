@@ -17,6 +17,14 @@ trait LoaderTrait {
     $this->loaded = new ArrayObject([]);
   }
 
+  /**
+   * @param FullID[] $item_ids
+   * @return mixed
+   */
+  abstract static function loadItems(array $item_ids);
+  abstract static function skeleton(FullID $item_id, mixed $item);
+  abstract static function fromArray();
+
   public static function loader(): self {
     if (!self::$loader_instance) {
       self::$loader_instance = new self();
