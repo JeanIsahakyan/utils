@@ -44,6 +44,11 @@ abstract class AbstractBuilder {
         $value = (int)$value;
       } elseif ($type === 'NULL') {
         $value = null;
+      } elseif ($type === 'array') {
+        foreach ($value as $k => $v) {
+          $result[$key.$k] = [$v, PDO::PARAM_STR];
+        }
+        continue;
       }
       $result[$key] = [$value, self::PDO_TYPES[$type]];
     }
